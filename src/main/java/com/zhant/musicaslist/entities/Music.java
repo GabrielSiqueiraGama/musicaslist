@@ -22,7 +22,9 @@ public class Music {
 	private String genre;
 	private String artist;
 	private String imgUrl;
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
 	public Music() {
