@@ -7,3 +7,30 @@ INSERT INTO tb_music (title, music_year, genre, artist, img_url, short_descripti
 INSERT INTO tb_music (title, music_year, genre, artist, img_url, short_description, long_description) VALUES ('Hotel California', 1977, 'Rock', 'Eagles', 'https://akamai.sscdn.co/letras/360x360/albuns/6/c/9/c/363051404156912.jpg', 'A critique of California lifestyle.', 'Hotel California features an engaging melody and symbolic lyrics exploring hedonism and decadence.');
 INSERT INTO tb_music (title, music_year, genre, artist, img_url, short_description, long_description) VALUES ('Stairway to Heaven', 1971, 'Rock', 'Led Zeppelin', 'https://m.media-amazon.com/images/I/616YVJmiuAL._AC_UF1000,1000_QL80_.jpg', 'A classic rock masterpiece.', 'Regarded as one of the greatest songs of all time, Stairway to Heaven is known for its gradual buildup and iconic guitar solo.');
 INSERT INTO tb_music (title, music_year, genre, artist, img_url, short_description, long_description) VALUES ('What''s Going On', 1971, 'Soul', 'Marvin Gaye', 'https://upload.wikimedia.org/wikipedia/pt/c/c4/CapaMarvin_Gaye.jpg', 'A socially conscious song.', 'Marvin Gaye addressed issues like war and civil rights in What''s Going On, a landmark in soul music.');
+
+
+INSERT INTO tb_musica_list (name) VALUES ('Rock');
+INSERT INTO tb_musica_list (name) VALUES ('Pop');
+INSERT INTO tb_musica_list (name) VALUES ('Grunge');
+INSERT INTO tb_musica_list (name) VALUES ('Folk Rock');
+INSERT INTO tb_musica_list (name) VALUES ('Soul');
+
+
+-- Rock
+INSERT INTO tb_belonging (list_id, music_id, position) VALUES (1, 1, 0); 
+INSERT INTO tb_belonging (list_id, music_id, position) VALUES (1, 6, 1); 
+INSERT INTO tb_belonging (list_id, music_id, position) VALUES (1, 7, 2); 
+INSERT INTO tb_belonging (list_id, music_id, position) VALUES (1, 8, 3); 
+
+-- Pop
+INSERT INTO tb_belonging (list_id, music_id, position) VALUES (2, 2, 0); 
+INSERT INTO tb_belonging (list_id, music_id, position) VALUES (2, 4, 1); 
+
+-- Grunge
+INSERT INTO tb_belonging (list_id, music_id, position) VALUES (3, 3, 0); 
+
+-- Folk Rock
+INSERT INTO tb_belonging (list_id, music_id, position) VALUES (4, 5, 0); 
+
+-- Soul
+INSERT INTO tb_belonging (list_id, music_id, position) VALUES (5, 9, 0);
