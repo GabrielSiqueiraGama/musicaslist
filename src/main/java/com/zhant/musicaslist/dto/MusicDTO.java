@@ -1,4 +1,4 @@
-package dto;
+package com.zhant.musicaslist.dto;
 
 import org.springframework.beans.BeanUtils;
 

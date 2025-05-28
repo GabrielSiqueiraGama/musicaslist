@@ -1,4 +1,4 @@
-package repositories;
+package com.zhant.musicaslist.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

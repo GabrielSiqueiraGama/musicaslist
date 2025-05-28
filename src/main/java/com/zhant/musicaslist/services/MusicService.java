@@ -1,4 +1,4 @@
-package services;
+package com.zhant.musicaslist.services;
 
 import java.util.List;
 
@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.zhant.musicaslist.dto.MusicDTO;
 import com.zhant.musicaslist.entities.Music;
-
-import dto.MusicDTO;
-import repositories.MusicRepository;
+import com.zhant.musicaslist.repositories.MusicRepository;
 
 @Service
 public class MusicService {
