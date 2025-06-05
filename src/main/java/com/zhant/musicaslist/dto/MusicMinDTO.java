@@ -1,6 +1,7 @@
 package com.zhant.musicaslist.dto;
 
 import com.zhant.musicaslist.entities.Music;
+import com.zhant.musicaslist.projections.MusicMinProjection;
 
 public class MusicMinDTO {
 	private Long id;
@@ -20,6 +21,14 @@ public class MusicMinDTO {
 		artist = entity.getArtist();
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
+	}
+	
+	public MusicMinDTO(MusicMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
 	}
 
 	public Long getId() {
