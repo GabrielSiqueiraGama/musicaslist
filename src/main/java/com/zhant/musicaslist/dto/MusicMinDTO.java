@@ -26,7 +26,8 @@ public class MusicMinDTO {
 	public MusicMinDTO(MusicMinProjection projection) {
 		id = projection.getId();
 		title = projection.getTitle();
-		year = projection.getYear();
+		artist = projection.getArtist();
+		year = projection.getMusicYear();
 		imgUrl = projection.getImgUrl();
 		shortDescription = projection.getShortDescription();
 	}
