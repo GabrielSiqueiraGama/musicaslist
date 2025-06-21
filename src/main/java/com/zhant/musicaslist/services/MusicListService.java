@@ -8,13 +8,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.zhant.musicaslist.dto.MusicListDTO;
 import com.zhant.musicaslist.entities.MusicList;
+import com.zhant.musicaslist.projections.MusicMinProjection;
 import com.zhant.musicaslist.repositories.MusicListRepository;
+import com.zhant.musicaslist.repositories.MusicRepository;
 
 @Service
 public class MusicListService {
 
 	@Autowired
 	private MusicListRepository musicListRepository;
+	@Autowired
+	private MusicRepository musicRepository;
 	
 	@Transactional(readOnly = true)
 	public List<MusicListDTO> findAll(){
@@ -22,4 +26,17 @@ public class MusicListService {
 		return musicList.stream().map(x -> new MusicListDTO(x)).toList();
 	}
 
+	public void move(Long listId, int sourceIndex,int destinationIndex ) {
+		List<MusicMinProjection> list = musicRepository.searchByList(listId);	
+		
+		MusicMinProjection obj = list.remove(sourceIndex);
+		list.add(destinationIndex, obj);
+		
+		int min = sourceIndex < destinationIndex ? sourceIndex : destinationIndex;
+		int max = sourceIndex < destinationIndex ? destinationIndex : sourceIndex;
+		
+		for(int i = min; i <= max; i++) {
+			musicListRepository.updateBelongingPosition(listId, list.get(i).getId(), i);
+		}
+	}
 }
