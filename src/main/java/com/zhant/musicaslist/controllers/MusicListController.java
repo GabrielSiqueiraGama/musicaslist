@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zhant.musicaslist.dto.MusicListDTO;
 import com.zhant.musicaslist.dto.MusicMinDTO;
+import com.zhant.musicaslist.dto.ReplacementDTO;
 import com.zhant.musicaslist.services.MusicListService;
 import com.zhant.musicaslist.services.MusicService;
 
@@ -32,5 +35,10 @@ public class MusicListController {
 	public List<MusicMinDTO> findByList(@PathVariable Long listId){
 		List<MusicMinDTO> result = musicService.findByList(listId);
 		return result;
+	}
+	
+	@PostMapping(value = "/{listId}/musics")
+	public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body){
+		musicListService.move(listId, body.getSourceIndex(), body.getDestinationIndex());
 	}
 }
