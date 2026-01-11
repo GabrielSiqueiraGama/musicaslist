@@ -2,7 +2,6 @@ package com.zhant.musicaslist.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,11 +13,14 @@ import com.zhant.musicaslist.repositories.MusicRepository;
 
 @Service
 public class MusicListService {
-
-	@Autowired
-	private MusicListRepository musicListRepository;
-	@Autowired
-	private MusicRepository musicRepository;
+	
+	private final MusicListRepository musicListRepository;
+	private final MusicRepository musicRepository;
+	
+	public MusicListService(MusicListRepository musicListRepository, MusicRepository musicRepository) {
+		this.musicListRepository = musicListRepository;
+		this.musicRepository = musicRepository;
+	}
 	
 	@Transactional(readOnly = true)
 	public List<MusicListDTO> findAll(){

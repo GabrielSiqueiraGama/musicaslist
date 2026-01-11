@@ -2,7 +2,6 @@ package com.zhant.musicaslist.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,10 +19,13 @@ import com.zhant.musicaslist.services.MusicService;
 @RequestMapping(value = "/lists")
 public class MusicListController {
 
-	@Autowired
-	private MusicListService musicListService;
-	@Autowired
-	private MusicService musicService;
+	private final MusicListService musicListService;
+	private final MusicService musicService;
+	
+	public MusicListController(MusicListService musicListService, MusicService musicService) {
+		this.musicListService = musicListService;
+		this.musicService = musicService;
+	}
 	
 	@GetMapping
 	public List<MusicListDTO> findAll(){
